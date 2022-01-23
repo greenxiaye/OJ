@@ -17,4 +17,3 @@
 > 名企编程真题
 
 - [hw](./Level_名企编程真题/Level_hw/README.md)
-- [mt](./Level_名企编程真题/Level_mt/README.md)

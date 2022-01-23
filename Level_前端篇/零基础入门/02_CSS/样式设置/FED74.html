@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>段落标识</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+    // childNodes[0] 为 NodeList(2) [text, script]
+    const pInnerText = document.body.childNodes[0].textContent.trim();
+    document.body.removeChild(document.body.childNodes[0]);
+    const p = document.createElement('p');
+    p.innerHTML = pInnerText;
+
+</script>
+
+</html>
+<style type="text/css">
+</style>
+<!-- 描述
+请将下面这句话以段落的形式展示在浏览器中——“牛客网是一个专注于程序员的学习和成长的专业平台。” -->
+
+<!-- // 解法2 JS实现 修改给定的HTML代码，定位body并用带p标签的文本代替原文本
+let body = document.getElementsByTagName("body")[0];//<body></body
+body.innerHTML = body.innerText.replace("牛客网是一个专注于程序员的学习和成长的专业平台。", "<p>牛客网是一个专注于程序员的学习和成长的专业平台。</p>"); -->
+
+<!-- // 解法3 JS使用document.write，缺点是没有删除给定的不带p标签的文本
+document.write('<p>牛客网是一个专注于程序员的学习和成长的专业平台。</p>'); -->

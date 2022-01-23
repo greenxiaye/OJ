@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签、类、ID 选择器</title>
+</head>
+
+<body>
+    <div>红色</div>
+    <div class='green'>绿色</div>
+    <div id='black'>黑色</div>
+</body>
+<script type="text/javascript">
+    console.log(p)
+</script>
+
+</html>
+<!-- 嵌入样式表 -->
+<style type="text/css">
+    div {
+        font-size: 20px
+    }
+
+    div:first-child {
+        color: rgb(255, 0, 0);
+    }
+
+    .green {
+        color: rgb(0, 128, 0)
+    }
+
+    #black {
+        color: rgb(0, 0, 0);
+    }
+</style>
+<!-- 描述
+请将html模块中字体内容是"红色"的字体颜色设置为"rgb(255, 0, 0)"，"绿色"设置为"rgb(0, 128, 0)"，"黑色"设置为"rgb(0, 0, 0)"，且字体大小都为20px。 -->
+
+
+<!-- 外部样式表通过 link 进行对外部CSS样式文件的引用 -->
+<!-- (写在head标签内）——优先级最低 -->
+
+<!-- <head>
+
+    <title></title>
+
+    <link href="xxx.css" rel="stylesheet" type="text/css" />
+
+</head> -->

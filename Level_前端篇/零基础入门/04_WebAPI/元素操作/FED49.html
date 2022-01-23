@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS动态创建节点</title>
+</head>
+
+<body>
+    <ul></ul>
+</body>
+<script type="text/javascript">
+    function createLi(array) {
+        for (let i = 0; i < array.length; i++) {
+            let li = document.createElement("li");
+            li.innerText = array[i];
+            document.querySelector("ul").appendChild(li)
+        }
+    }
+    let arr = [3, 4, 5]
+    createLi(arr)
+</script>
+
+</html>
+
+<!-- 描述
+请补全JavaScript函数，根据参数数组创建li元素。
+要求：
+1. li元素的个数和数组的长度一样
+2. li元素的内容是数组中的每个元素
+3. 将创建的所有li元素插入到ul中  -->

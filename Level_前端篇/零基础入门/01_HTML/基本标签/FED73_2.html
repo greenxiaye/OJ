@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加粗文字</title>
+</head>
+
+<body>
+    <p><span>牛客网</span>，程序员必备求职神器</p>
+</body>
+<script type="text/javascript">
+    let flag = function () {
+        return document.getElementsByTagName('strong').length
+    }
+    console.log(flag())
+</script>
+
+</html>
+<style type="text/css">
+    span {
+        font-weight: bold;
+    }
+</style>
+<!-- 描述
+使用一个标签将“牛客网”三个字加粗显示 -->
+<!-- 解法3 用CSS设置样式
+但是题目会检查提交结果文档中strong标签的个数是否为1
+用例输入 function() { return document.getElementsByTagName('strong').length }
+预期输出 1
+实际输出 0 -->

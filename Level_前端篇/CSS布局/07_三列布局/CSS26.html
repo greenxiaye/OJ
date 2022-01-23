@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三列布局 - 绝对定位</title>
+</head>
+
+<body>
+    <section class="container">
+        <article class="left"><br /><br /></article>
+        <article class="center"><br /><br /><br /></article>
+        <article class="right"><br /><br /><br /><br /></article>
+    </section>
+</body>
+
+</html>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        position: relative
+    }
+
+    .left {
+        border: 1px solid black;
+        position: absolute;
+        left: 0;
+        width: 100px;
+    }
+
+    .center {
+        border: 1px solid black;
+        position: absolute;
+        left: 100px;
+        right: 100px;
+    }
+
+    .right {
+        border: 1px solid black;
+        position: absolute;
+        right: 0;
+        width: 100px;
+    }
+</style>
+<!-- 描述
+ 使用绝对定位实现三列布局，实际上是和之前使用绝对定位实现双列布局同一个原理。主要思路是，两边通过绝对定位定位到父盒子的左、右边框上，再根据实际的需要设置两边盒子的宽度，高度是根据内容自适应的。中间内容区通过定位属性左、右自适应宽度。
+ 现在给类名为"container"的盒子添加"position: relative"，该属性使子元素可以相对该盒子做定位。继续给类名为"left"的盒子添加"position: absolute"、"left: 0px"和"width: 100px"三条属性。继续给类名为"right"的盒子添加"position: absolute"、"right: 0px"和"width: 100px"三条属性。最后给类名为"center"的盒子添加"position: absolute"、"left: 100px"和"right: 100px"三条属性，表示自适应区域为距离左边100px至距离右边100px。此时可以看到三个盒子的高度不同，根据内容高度撑开，实际中可以按需设置高度值。
+ 完成以上所讲的步骤即可通过测试，进入下一节的学习吧。 -->

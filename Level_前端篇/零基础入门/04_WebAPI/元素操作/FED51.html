@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS修改元素内容</title>
+</head>
+
+<body>
+    <div class="box">1</div>
+</body>
+<script type="text/javascript">
+    function modifyText_1() {
+        let box = document.querySelector(".box")
+        box.innerText = "欢迎来到牛客网"
+    }
+    function modifyText_2() {
+        let box = document.getElementsByClassName('box')[0]
+        console.log(box) // 注意这里打印的不是1
+        box.innerText = "欢迎来到牛客网"
+    }
+    function modifyText() {
+        console.log(document.querySelectorAll('.box'));
+        console.log(...document.querySelectorAll('.box'));
+        console.log([...document.querySelectorAll('.box')]);
+        [...document.querySelectorAll('.box')].forEach(item => {
+            console.log(item)
+            item.innerHTML = '欢迎来到牛客网'
+        })
+    }
+    modifyText()
+</script>
+
+</html>
+
+
+<!-- 描述
+请补全JavaScript函数，将类为"box"的div元素内容修改为"欢迎来到牛客网"。 -->

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合法的URL</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    const _isUrl = url => {
+        // let reg = /^(https|http):\/\// 
+        let reg1 = /^(http|https)?:\/\/[\w.%+-]+[\w.-]+\.[a-zA-Z]{2,6}/
+        let reg2 = /^(http|https)?:\/\/[\w.%+-]+\.[a-zA-Z]{2,6}/
+
+        let reg = /^((http|https):\/\/)?(([A-Za-z0-9]+-[A-Za-z0-9]+|[A-Za-z0-9]+)\.)+([A-Za-z]+)(:\d+)?(\/.*)?(\?.*)?(#.*)?$/
+
+
+        return reg.test(url);
+    }
+</script>
+
+</html>
+
+<!-- 请补全JavaScript代码，要求以Boolean的形式返回字符串参数是否为合法的URL格式。
+注意：
+1. 协议仅为HTTP(S) -->

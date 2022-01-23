@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加粗文字</title>
+</head>
+
+<body>
+    <p><span>牛客网</span>，程序员必备求职神器</p>
+    <span></span>
+</body>
+<script type="text/javascript">
+    let ans = function () {
+        let p = document.querySelector('p')
+        //console.log(p.innerText) //牛客网，程序员必备求职神器
+        p.innerHTML = `<strong>牛客网</strong>${p.innerText.replace(/牛客网/, '')}`
+    }
+    // console.log(this) //window
+    ans.call(this)
+</script>
+
+</html>
+<style type="text/css">
+</style>
+<!-- 描述
+使用一个标签将“牛客网”三个字加粗显示 -->

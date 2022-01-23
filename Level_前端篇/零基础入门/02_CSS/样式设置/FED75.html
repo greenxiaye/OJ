@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置文字颜色</title>
+</head>
+
+<body>
+    <p>程序员必备求职神器</p>
+    <p>在这里，我们为你提供了IT名企的笔试面试题库</p>
+    <p>在这里，我们以题会友</p>
+</body>
+<script type="text/javascript">
+    let p = document.getElementsByTagName("p")
+    for (let i = 0; i < p.length; i++) {
+        p[i].style.cssText = "color:red"
+        // p[i].style.color = "red"
+    }
+    console.log(p)
+</script>
+
+</html>
+<style type="text/css">
+</style>
+<!-- 描述
+请使用嵌入样式将所有p标签设置为红色文字 -->
+
+<!-- 其他做法
+let head = document.head;
+let style = document.createElement("style");
+style.type = "text/css";
+style.innerHTML = "p {color: rgb(255,0,0);}";
+head.appendChild(style); -->

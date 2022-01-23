@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class='triangle'></div>
+
+    <script>
+        var triangle = document.querySelector('.triangle');
+        for (let i = 1; i <= 3; i++) {
+            let div = document.createElement('div');
+            let str = "*".repeat(i)
+            div.innerHTML = str + "<br>"
+            triangle.appendChild(div)
+        }
+        // let ans = function () {
+        //     var div = document.querySelector('div');
+        //     console.log(div)
+        //     console.log(div.querySelectorAll('br'))
+        //     var second = div.querySelectorAll('br').length >= 2;
+        //     var result = second;
+        //     return result;
+        // }
+        // console.log(ans())
+    </script>
+
+</body>
+
+</html>
+
+<!-- 描述
+请补全JavaScript代码，要求在页面上渲染出一个直角三角形，三角形换行要求使用"br"实现。三角形如下：
+*
+**
+*** -->

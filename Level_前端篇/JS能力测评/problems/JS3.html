@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 分隔符</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        function _comma(number) {
+            let len = number >= 0 ? String(number).length : String(number).length - 1
+            let str = number >= 0 ? String(number) : String(number).substring(1)
+            let cnt = 1
+            let ans = ""
+            if (len > 3) {
+                for (let i = len - 1; i >= 0; i--) {
+                    ans += str[i]
+                    if (cnt % 3 === 0) {
+                        ans += ','
+                    }
+                    cnt++
+                }
+                if (number > 0) {
+                    return ans.split('').reverse().join('')
+                } else {
+                    return "-" + ans.split('').reverse().join('')
+                }
+
+            }
+            return String(number)
+
+        }
+        let ans = _comma(1294)
+        console.log(ans)
+        // 有意思的答案
+        function _comma_2(number) {
+            let str = number.toString();
+            return str.replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+        }
+        function _comma_3(number) {
+            number = ('' + number).replace(/\d{1,3}(?=(\d{3})+$)/g, (val) => {
+                console.log(val); //1
+                return val + ','
+            })
+            let reg = /\d{1,3}(?=(\d{3})+$)/g
+            reg.test(number) //234 567
+            console.log('===', RegExp.$1)
+            return number;
+        }
+        function _comma_4(number) {
+            let res = ''
+            let count = 0
+            const negative = number < 0 ? '-' : ''
+            number = Math.abs(number).toString()
+            for (let i = number.length - 1; i >= 0; i--) {
+                count += 1
+                res = number[i] + res
+                if (count % 3 === 0 && i !== 0 && number[i] !== '.') {
+                    res = ',' + res
+                }
+            }
+            return negative + res
+        }
+
+    </script>
+</body>
+
+</html>
+<!-- 描述
+请补全JavaScript代码，要求返回参数数字的千分位分隔符字符串。 -->

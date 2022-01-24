@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>总成绩排名</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    const _rank = array => {
+        // 补全代码
+        array.sort((a, b) => {
+            let left = a.chinese + a.math + a.english
+            let right = b.chinese + b.math + b.english
+            return right - left
+        })
+        return array
+    }
+    let array = [{ chinese: 60, math: 60, english: 60 }, { chinese: 60, math: 60, english: 66 }, { chinese: 60, math: 60, english: 59 }]
+    console.log(_rank(array))
+</script>
+
+<!-- 描述
+请补全JavaScript代码，要求将数组参数中的对象以总成绩(包括属性"chinese"、"math"、"english")从高到低进行排序并返回。 -->

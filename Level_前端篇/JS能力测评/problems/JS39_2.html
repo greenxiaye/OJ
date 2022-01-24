@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体高亮使用replace</title>
+</head>
+
+<body>
+    <input type="text">
+    <button style="margin-right: 80px">查询</button>
+    <div class="text" style="margin-top: 70px">
+        我爱你中国，我爱你江苏，我爱你扬州
+    </div>
+
+</body>
+
+</html>
+<script>
+    var text = document.querySelector(".text");
+    var search = document.querySelector("input");
+    const btn = document.querySelector("button");
+    btn.onclick = () => {
+        if (text.innerText.indexOf(search.value) !== -1) {
+            let reg = new RegExp(search.value, 'g')
+            text.innerHTML = text.innerText.replace(reg, `<b style='background-color:yellow;color:black'>${search.value}</b>`)
+        } else {
+            let Btags = document.querySelectorAll("b")
+            for (let i = 0; i < Btags.length; i++) {
+                Btags[i].style.cssText = "background-color:transparent; color: unset; font-weight: unset;"
+            }
+        }
+    }
+</script>

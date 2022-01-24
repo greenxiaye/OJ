@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组扁平化</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    const _flatten = arr => {
+        return arr.reduce((ansArr, item) => {
+            if (Object.prototype.toString.call(item) == "[object Array]") {
+                // Array.prototype.push.apply(ansArr, _flatten(item))
+                ansArr.push(..._flatten(item))
+            } else {
+                ansArr.push(item)
+            }
+            return ansArr
+        }, [])
+
+    }
+    let ans = _flatten([1, [2, [3, [4]]]])
+    console.log(ans)
+
+    const _flatten_2 = arr => {
+        return arr.reduce((result, item) => {
+            return result.concat(Array.isArray(item) ? _flatten(item) : item)
+        }, [])
+    }
+
+    const _flatten_3 = arr => {
+        // join() + split() 实现
+        return arr.join(',').split(',').map(item => Number(item));
+    }
+
+
+    const _flatten_4 = arr => {
+        // 递归实现
+        let res = [];
+        arr.forEach(item => {
+            if (Array.isArray(item)) {
+                res = res.concat(flatten(item))
+            } else {
+                res.push(item);
+            }
+        });
+        return res;
+    }
+    const _flatten_5 = arr => {
+        // flat()实现
+        return arr.flat(Infinity);
+    }
+</script>
+<!-- 描述
+请补全JavaScript代码，要求将数组参数中的多维数组扩展为一维数组并返回该数组。
+注意：
+1. 数组参数中仅包含数组类型和数字类型 -->

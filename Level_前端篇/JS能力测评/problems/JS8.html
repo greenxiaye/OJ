@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组排序</title>
+</head>
+
+<body>
+    <button class='up'>销量升序</button>
+    <button class='down'>销量降序</button>
+    <ul></ul>
+</body>
+
+</html>
+<script>
+    var cups = [
+        { type: 1, price: 100, color: 'black', sales: 3000, name: '牛客logo马克杯' },
+        { type: 2, price: 40, color: 'blue', sales: 1000, name: '无盖星空杯' },
+        { type: 4, price: 60, color: 'green', sales: 200, name: '老式茶杯' },
+        { type: 3, price: 50, color: 'green', sales: 600, name: '欧式印花杯' }
+    ]
+    var ul = document.querySelector('ul');
+    var upbtn = document.querySelector('.up');
+    var downbtn = document.querySelector('.down');
+
+    function cmp_asc(a, b) {
+        return a.sales - b.sales //升序
+    }
+    function cmp_desc(a, b) {
+        return b.sales - a.sales
+    }
+    function display(flag) {
+        let li = document.createElement("li");
+        // 排序
+        if (flag) {
+            cups.sort(cmp_asc)
+        } else (
+            cups.sort(cmp_desc)
+        )
+        // 筛选出name
+        let array = cups.reduce((arr, item) => {
+            arr.push(item.name)
+            return arr
+            // return (arr.push(item.name), arr); 
+        }, [])
+        // 删除后
+        let hasli = ul.firstChild
+        if (hasli) {
+            let childs = ul.childNodes
+            for (let i = childs.length - 1; i >= 0; i--) {
+                ul.removeChild(childs[i])
+            }
+        }
+        // 再渲染
+        for (let i = 0; i < array.length; i++) {
+            let li = document.createElement("li");
+            li.innerText = array[i];
+            ul.appendChild(li)
+        }
+
+        // // 或者 直接将父元素，重新渲染
+        // renderUl = (arr) => {
+        //     console.log(arr)
+        //     let str = ''
+        //     arr.forEach((item) => str += `<li>${item}</li>`)
+        //     ul.innerHTML = str
+        // }
+        // renderUl(array)
+    }
+    upbtn.onclick = function (event) {
+        display(true)
+    }
+    downbtn.onclick = function (event) {
+        display(false)
+    }
+
+</script>
+
+<!-- 描述
+请补全JavaScript代码，根据预设代码中的数组，实现以下功能：
+1. 列表只展示数组中的name属性
+2. 实现点击"销量升序"按钮，列表内容按照销量升序重新渲染
+3. 实现点击"销量降序"按钮，列表内容按照销量降序重新渲染
+注意：
+1. 必须使用DOM0级标准事件（onclick） -->

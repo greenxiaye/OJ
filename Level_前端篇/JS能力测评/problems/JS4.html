@@ -10,13 +10,18 @@
 
 <body>
     <input id="input" type="text" />
+    <!-- <input id="input" onchange="handleInput(this)" type="text" /> -->
     <span id="span"></span>
 </body>
 
 </html>
 <script type="text/javascript">
-    // 补全代码
-
+    let input_ = document.querySelector('#input')
+    let span_ = document.querySelector('#span')
+    input_.onchange = function (event) {
+        span_.innerText = this.value
+        // ss.innerText = event.target.value //不通过
+    }
 </script>
 <!-- 描述
 请补全JavaScript代码，要求每当id为"input"的输入框值发生改变时触发id为"span"的标签内容同步改变。

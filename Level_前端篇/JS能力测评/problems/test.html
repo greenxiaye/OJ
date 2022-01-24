@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组排序</title>
+</head>
+
+<body>
+    <button class='up'>销量升序</button>
+    <button class='down'>销量降序</button>
+    <ul></ul>
+</body>
+
+</html>
+<script>
+    var person = {
+        level: '2',
+        name: '小丽',
+        registTime: '2021-11-01',
+    }
+    var h2 = document.querySelector('h2');
+    // 补全代码
+    let day = getDay(new Date(person.registTime), new Date());
+    h2.innerText = `尊贵的牛客网${person.level}级用户${person.name}您好，您已经注册牛客网${day}天啦~`;
+
+    function getDay(startTime, endTime) {
+        return Math.floor((endTime.valueOf() - startTime.valueOf()) / 86400 / 1000);
+    }
+
+
+</script>

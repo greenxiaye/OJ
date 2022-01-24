@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建数组</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    const _createArray = (number) => {
+        return Array.from({ length: number }, () => number)
+    }
+    const _createArray_2 = (number) => {
+        return new Array(number).fill(number)
+    }
+    console.log(_createArray(2))
+</script>
+<!-- 描述
+请补全JavaScript代码，要求返回一个长度为参数值并且每一项值都为参数值的数组。
+注意：
+1. 请勿直接使用for/while -->

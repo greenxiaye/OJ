@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回文字符串</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    const _isPalindrome = string => {
+        console.log(string)
+        console.log(JSON.stringify(string))
+        let str1 = JSON.parse(JSON.stringify(string));
+        let str2 = str1.split("").reverse().join("");
+        if (str1 === str2) {
+            return true;
+        }
+        return false;
+    }
+    let str1 = "dsdafewdsfedsdawf";
+
+    console.log(_isPalindrome(str1))
+    const _isPalindrome_2 = string => {
+        let length = Math.floor(string.length / 2)
+        let one = string.substring(0, length)
+        let two = string.substring(string.length - length).split('').reverse().join('')
+        return one == two
+    }
+</script>
+<!-- 
+描述
+请补全JavaScript代码，要求以boolean的形式返回参数字符串是否为回文字符串。 -->

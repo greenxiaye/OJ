@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证是否是身份证</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    const _isCard = number => {
+        let reg = /^\d{17}[0-9X]$/
+        return reg.test(number)
+    }
+    let s = '21062319980907888'
+    console.log(_isCard(s))
+    let reg2 = /^\d{17}(\d|X|x){1}$/;
+    let reg3 = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
+</script>
+
+<!-- 描述
+请补全JavaScript代码，要求以Boolean的形式返回字符串参数是否符合身份证标准。
+注意：
+1. 无需考虑地区信息、出生日期、顺序码与校验码的验证 -->

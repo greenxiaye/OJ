@@ -1,4 +1,4 @@
-// 没通过 超时，但就是想留着
+// 没通过递归 超时，但就是想留着
 let n = '3'
 let input = "1 1 0 0 1 1 0 0"
 function solve(n, input) {

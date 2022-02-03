@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成页码</title>
+</head>
+
+<body>
+    <ul id="ul">
+
+    </ul>
+</body>
+
+</html>
+<script type="text/javascript">
+    const _createPage = (allItem, pageItem) => {
+        let ul = document.querySelector("#ul")
+        let cnt = Math.ceil(allItem / pageItem)
+        for (let i = 0; i < cnt; i++) {
+            let li = document.createElement("li")
+            li.innerHTML = i + 1
+            ul.appendChild(li)
+        }
+    }
+    _createPage(13, 2)
+</script>
+
+<!-- 描述
+请补全JavaScript代码，要求根据参数动态生成"li"标签页码并插入"ul"标签下。要求如下：
+1. "allItem"为总数据项个数，"pageItem"为每页的数据项个数
+2. "li"标签内容为当前页码数，页码从1开始 -->

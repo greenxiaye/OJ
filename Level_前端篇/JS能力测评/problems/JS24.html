@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Symbol</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    const _symbolKey = array => {
+        let obj = {}
+        for (let i = 0; i < array.length; i++) {
+            let key = Symbol(array[i])
+            obj[key] = array[i]
+        }
+        return obj
+    }
+    let array = [123, 2]
+    console.log(_symbolKey(array)) //{ [Symbol(123)]: 123, [Symbol(2)]: 2 }
+
+    let ans = function () {
+        let o = _symbolKey([1, 2]);
+        return Object.getOwnPropertySymbols(o)[0].toString() === 'Symbol(1)' && Object.getOwnPropertySymbols(o)[1].toString() === 'Symbol(2)'
+    }
+    console.log(ans())//true
+</script>
+
+<!-- 描述
+请补全JavaScript代码，要求以键/值对的对象形式返回参数数组。要求如下：
+1. 键名的数据类型为Symbol
+2. 键值为当前数组项
+3. Symbol的描述为当前数组项
+4. 返回普通对象 -->

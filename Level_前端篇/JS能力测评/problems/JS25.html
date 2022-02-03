@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相同的Sets</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    const _isSameSet = (s1, s2) => {
+        console.log([...s1])
+        let arr1 = Array.from(s1).sort();
+        let arr2 = Array.from(s2).sort();
+        let str1 = JSON.stringify(arr1);
+        let str2 = JSON.stringify(arr2);
+        // console.log(arr1 == arr2);//false
+        return str1 === str2;
+    }
+    let s1 = new Set(['a', 'b', 'c'])
+    let s2 = new Set(['a', 'c', 'b'])
+    let ans = _isSameSet(s1, s2)
+    console.log(ans)
+
+    const _isSameSet_2 = (s1, s2) => {
+        // 判断两个set对象的长度是否一致
+        if (s1.size !== s2.size) {
+            return false;
+        }
+        // 判断该数组中的每一项是否存在于另一个set对象中
+        let result = [...s1].every(item => {
+            return s2.has(item)
+        })
+        console.log(result)
+    }
+</script>
+<!-- 描述
+请补全JavaScript代码，要求以boolean的形式返回两个Set对象参数是否一样，是则返回true，否则返回false。 -->

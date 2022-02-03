@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制动画</title>
+</head>
+
+<body>
+    <!-- 补全代码 -->
+    <div id="rect"></div>
+    <input id="range" defaultValue="1" step="1" type="range" min="1" max="10" value="1" />
+</body>
+
+</html>
+<script type="text/javascript">
+    var rect = document.getElementById("rect");
+    var input = document.getElementById("range");
+    input.onchange = function () {
+        let speed = input.value
+        console.log(rect.style.animationDuration)
+        rect.style.animationDuration = 11 - speed + "s"
+    }
+
+</script>
+<style type="text/css">
+    #rect {
+        width: 120px;
+        height: 100px;
+        background-color: black;
+        animation: rect 10s linear infinite;
+
+    }
+
+    @keyframes rect {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<!-- 描述
+请补全代码，要求当滑动id为"range"的滑块控件时可以改变id为"rect"的矩形旋转速度。要求如下：
+1. id为"rect"的矩形初始动画周期为10秒
+2. id为"range"的滑块控件默认值为1、最小值为、最大值为10、滑动间隔为1
+3. 当滑动滑块值为1时，矩形动画周期为10秒、当...，为...、当滑动滑块值为10时，矩形动画周期为1秒
+注意：
+1. 必须使用DOM0级标准事件（onchange） -->

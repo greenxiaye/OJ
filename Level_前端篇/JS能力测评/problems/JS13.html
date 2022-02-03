@@ -14,20 +14,31 @@
 
 </html>
 <script type="text/javascript">
+
     class Human {
         constructor(name) {
             this.name = name
             this.kingdom = 'animal'
             this.color = ['yellow', 'white', 'brown', 'black']
         }
-        // 补全代码
+        getName() {
+            return this.name
+        }
 
     }
 
     // 补全代码
-    class Chinese {
-
+    class Chinese extends Human {
+        constructor(name, age) {
+            super(name)
+            this.age = age
+        }
+        getAge() {
+            return this.age
+        }
     }
+    let c = new Chinese(12, 'hh')
+    console.log(c.age)
 </script>
 
 <!-- 描述

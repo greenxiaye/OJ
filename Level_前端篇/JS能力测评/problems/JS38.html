@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高频数据类型
+    </title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    function haveType(value) {
+        let reg = /^\[object\s+(.*)\]$/
+        let typeStr = Object.prototype.toString.call(value)
+        reg.test(typeStr)
+        return RegExp.$1.toLowerCase()
+
+    }
+    const _findMostType = array => {
+        let map = new Map();
+        let maxCnt = 0
+        for (let i = 0; i < array.length; i++) {
+            let type = haveType(array[i])
+            console.log(type)
+            if (cnt = map.get(type)) {
+                map.set(type, cnt + 1);
+                maxCnt = Math.max.apply(null, [maxCnt, cnt + 1]);
+            } else {
+                map.set(type, 1)
+                maxCnt = 1
+            }
+        }
+        let arr = []
+        for (let item of map) {
+            if (item[1] === maxCnt) {
+                arr.push(item[0])
+                // arr=[...arr,item[0]]
+            }
+        }
+        arr.push(maxCnt)
+        return arr
+    }
+    let result = function () {
+        return JSON.stringify(_findMostType([1, "1", {}, {}, 2, 3, 4, 3, 3, "", "", "", "", ""])) === '["number","string",6]' || JSON.stringify(_findMostType([1, "1", {}, {}, 2, 3, 4, 3, 3, "", "", "", "", ""])) === '["string","number",6]'
+    }
+    let ans = _findMostType([1, "1", {}, {}, 2, 3, 4, 3, 3, "", "", "", "", ""])
+    console.log(ans)
+</script>
+<!-- 
+描述
+请补全JavaScript代码，要求找到参数数组中出现频次最高的数据类型，并且计算出出现的次数，要求以数组的形式返回。
+注意：
+1. 基本数据类型之外的任何引用数据类型皆为"object"
+2. 当多种数据类型出现频次相同时将结果拼接在返回数组中，出现次数必须在数组的最后 -->

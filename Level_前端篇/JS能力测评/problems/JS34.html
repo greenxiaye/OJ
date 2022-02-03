@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 购物面板</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <caption>
+                商品
+            </caption>
+        </thead>
+        <tbody>
+            <tr>
+                <td>炸鸡</td>
+                <td>28元</td>
+                <td><button id="zjtaiduola">-</button></td>
+                <td><span id="zjsl">0</span></td>
+                <td><button id="zjtaishaola">+</button></td>
+            </tr>
+            <tr>
+                <td>可乐</td>
+                <td>5元</td>
+                <td><button id="kltaiduola">-</button></td>
+                <td><span id="klsl">0</span></td>
+                <td><button id="kltaishaola">+</button></td>
+            </tr>
+            <tr>
+                <td>总价：</td>
+                <td><span id="total">0</span></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
+<script type="text/javascript">
+    let chickenAdd = document.querySelector("#zjtaishaola")
+    let chickenSub = document.querySelector("#zjtaiduola")
+    let chicken = document.querySelector("#zjsl")
+
+    let colaAdd = document.querySelector("#kltaishaola")
+    let colaSub = document.querySelector("#kltaiduola")
+    let cola = document.querySelector("#klsl")
+
+    let money = document.querySelector("#total")
+
+    let foodCnt = { chickenCnt: 0, colaCnt: 0 }
+    function render() {
+        chicken.innerText = foodCnt.chickenCnt
+        cola.innerText = foodCnt.colaCnt
+        money.innerText = 28 * foodCnt.chickenCnt + 5 * foodCnt.colaCnt
+    }
+    Object.keys(foodCnt).forEach(key => {
+        let value = foodCnt[key] // 要给一下
+        Object.defineProperty(foodCnt, key, {
+            get() {
+                return value
+            },
+            set(newVal) {
+                value = newVal
+                render()
+            }
+        })
+    })
+
+    chickenAdd.onclick = function () {
+        foodCnt.chickenCnt++
+    }
+    chickenSub.onclick = function () {
+        if (foodCnt.chickenCnt) {
+            foodCnt.chickenCnt--
+        }
+    }
+
+    colaAdd.onclick = function () {
+        foodCnt.colaCnt++
+    }
+    colaSub.onclick = function () {
+        if (foodCnt.colaCnt) {
+            foodCnt.colaCnt--
+        }
+    }
+
+</script>
+<!-- 描述
+请补全代码，要求当滑动id为"range"的滑块控件时可以改变id为"rect"的矩形旋转速度。要求如下：
+1. id为"rect"的矩形初始动画周期为10秒
+2. id为"range"的滑块控件默认值为1、最小值为、最大值为10、滑动间隔为1
+3. 当滑动滑块值为1时，矩形动画周期为10秒、当...，为...、当滑动滑块值为10时，矩形动画周期为1秒
+注意：
+1. 必须使用DOM0级标准事件（onchange） -->

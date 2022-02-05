@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深拷贝</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    function checkedType(target) {
+        return Object.prototype.toString.call(target).slice(8, -1)
+    }
+    let map = new Map();
+    const _completeDeepClone = target => {
+        let reg = /^(RegExp|Function|Date|Map|Set)$/i
+        if (reg.test(target.constructor.name)) {
+            return new target.constructor(target) // new出来的肯定不一样
+        }
+        const type = checkedType(target)
+        let newTarget = type === "Array" ? [] : {};
+        if (type === "Array" || type === "Object") {
+            // 解决循环引用
+            if (map.get(target)) {
+                return map.get(target)
+            } else {
+                map.set(target, newTarget)
+            }
+            // 解决其他的
+            for (prop in target) {
+                if (target.hasOwnProperty(prop)) {
+                    newTarget[prop] = _completeDeepClone(target[prop])
+                }
+            }
+            return newTarget
+        } else {
+            return target
+        }
+    }
+
+    let ans_4 = function () {
+        let obj1 = {};
+        let obj2 = {
+            b: obj1,
+        };
+        obj1.a = obj2;
+        const o2 = _completeDeepClone_3(obj1)
+        console.log(obj1)
+        console.log(o2)
+    }
+    let ans_3 = function () {
+        var o1 = { name: '1234' }; o1.info = o1
+        const o2 = _completeDeepClone(o1)
+        console.log(o1)
+        console.log(o2)
+    }
+    let ans_2 = function () {
+        const o1 = { r: new RegExp() };
+        const o2 = _completeDeepClone(o1)
+        console.log(o1.r)
+        console.log(o2.r)
+        const judge = o1.r !== o2.r
+        return judge
+    }
+    let ans = function () {
+        const o1 = { name: 'g', age: 18, o: { name: 'o' }, a: [1, 2], r: new RegExp(), d: new Date() };
+        o1.self = o1;
+        const o2 = _completeDeepClone(o1);
+        o1.name = 'z';
+        o1.age = 1;
+        console.log(o1.r)
+        console.log(o2.r)
+        const judge = o1.name !== o2.name && o1.age !== o2.age && o1.o !== o2.o && o1.a !== o2.a && o1.r !== o2.r && o1.d !== o2.d && o1.self.self.self.self.self.self.self.self.self === o1.self && o1.self !== o2.self;
+        return judge
+    }
+
+    console.log(ans())
+
+// 参数可能包含函数、正则、日期、ES6新对象
+</script>
+<!-- 大佬的讲解如下 -->
+<!-- https://blog.nowcoder.net/n/aca2b7830cab44beb299e0699ae39ba9?f=comment -->
+<!-- 描述
+请补全JavaScript代码，要求实现对象参数的深拷贝并返回拷贝之后的新对象。
+注意：
+1. 需要考虑函数、正则、日期、ES6新对象
+2. 需要考虑循环引用问题 -->
